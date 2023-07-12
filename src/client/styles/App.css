@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap');
+
+html, body {
+  height: 100%;
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: #f3f3f3;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@layer components {
+    .card {
+        @apply flex rounded border-2 border-solid border-light-border 
+        bg-light-bg text-black dark:border-dark-border dark:bg-dark-bg dark:text-dark-text;
+    }
+    .result-card {
+        @apply absolute flex h-full w-full items-center justify-center
+        rounded border-2 border-solid border-light-border dark:!border-dark-border;
+    }
+    .divider {
+        @apply mt-3 mb-6 w-full border-t-2 border-light-border dark:border-dark-border;
+    }
+    .dialog-close {
+        @apply mt-8 w-full rounded bg-red-200 p-2 font-pkmEmerald text-lg font-bold text-red-600 hover:bg-red-300 dark:bg-red-400 dark:text-red-700 hover:dark:bg-red-300;
+    }
+
+    .dialog-card {
+        @apply card flex max-h-[80%] flex-col justify-start overflow-x-hidden overflow-y-scroll p-8 sm:max-h-[90%] min-w-[580px] sm:min-w-[300px]; 
+    }
+
+    .link {
+        @apply text-blue-500 hover:text-blue-400 dark:text-blue-300 dark:hover:text-blue-400;
+    }
+
+    .toggle-button {
+        @apply z-10 m-4 flex h-11 w-11 items-center justify-center rounded-full bg-black/30 text-[28px] text-white  hover:bg-black/10 dark:bg-white/40 hover:dark:bg-white/20;
+    }
+    .hint-tab-header {
+        @apply rounded-t pt-2 px-[5px] text-gray-600 dark:text-gray-400 cursor-pointer
+    }
+    .hint-tab-header-active {
+        @apply bg-gray-100 dark:bg-zinc-700 text-black dark:text-white
+    }
+    .single-result-container {
+        @apply card py-2 px-14 sm:py-1 sm:px-8 flex justify-center
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.p-dialog {
+    max-height: 100% !important;
 }
