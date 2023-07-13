@@ -51,9 +51,9 @@ export const Dropdown: React.FC<DropdownProps> = ({ options, onOptionSelected })
         </button>
         {isOpen && (
           <div className="absolute top-full mt-2 w-full sm:w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-auto max-h-screen">
-            <div className="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+            <div className="dark:bg-white dark:text-gray-800 py-1 rounded-md text-white bg-gray-800 shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
               {options.map((option, index) => (
-                <a key={index} onClick={() => selectOption(option)} className="block px-4 py-2 text-sm text-gray cursor-pointer hover:bg-gray-100" role="menuitem">{option}</a>
+                <a key={index} onClick={() => selectOption(option)} className="block px-4 py-2 text-sm text-gray cursor-pointer hover:bg-gray-400" role="menuitem">{option}</a>
               ))}
             </div>
           </div>

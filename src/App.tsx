@@ -29,7 +29,7 @@ export default function App() {
   };
 
   return (
-    <div className="App w-full h-full bg-gray-700 flex flex-col items-center pt-[20px] px-2">
+    <div className="App w-full h-full bg-white-200 dark:bg-gray-800 flex flex-col items-center pt-[20px] px-2">
       <Navbar onOptionSelected={handleOperationChange} />
       {renderPage(selectedOperation)}
     </div>
