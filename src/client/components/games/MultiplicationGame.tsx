@@ -4,6 +4,8 @@ import Modal from 'react-modal';
 import Countdown from 'react-countdown';
 import { generateEasyMultiplication, generateHardMultiplication } from '../../services/mathExpressionGenerator';
 
+Modal.setAppElement('body'); // Set app element for Modal here
+
 interface MathProblem {
     question: string;
     answer: number;

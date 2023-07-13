@@ -1,12 +1,27 @@
 import { MultiplicationGame } from "../games/MultiplicationGame"
-import { useState } from "react";
+import {CountDown} from '../../services/CountDown'
+import { useState, useEffect } from "react";
+
 
 export const Multiplication = () =>{
     const [showGameBool, setShowGameBool] = useState(false);
+    const [showCountDown, setShowCountDown] = useState(false);
+
+    const [countdownFinished, setCountdownFinished] = useState<boolean>(false)
+    useEffect(() => {
+        if (countdownFinished) {
+            showGame();
+        }
+    }, [countdownFinished]);
 
     const showGame = () => {
       setShowGameBool(true);
+      setShowCountDown(false)
     };
+
+    const showCountdown = () =>{
+        setShowCountDown(true);
+    }
 
     const hideGame = () =>{
         setShowGameBool(false)
@@ -18,10 +33,15 @@ export const Multiplication = () =>{
             <h1 className="text-[25px] text-center">
                 Multiplication
             </h1>
-            <button className="border-2 p-2 rounded" onClick={showGame}>
+            <button className="border-2 p-2 rounded" onClick={showCountdown}>
                 Play Game
             </button>
             {showGameBool && <MultiplicationGame onClose={hideGame}/>}
+            {showCountDown &&  <CountDown 
+                    initialSeconds={3} 
+                    onCountdownFinish={() => setCountdownFinished(true)} 
+                />}
+
         </div>
     )
 }

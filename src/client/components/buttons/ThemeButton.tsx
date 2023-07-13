@@ -27,7 +27,7 @@ export const ThemeSwitch: React.FC = () => {
       {theme === 'dark' ? (
         <Icon path={mdiWeatherNight} size={1} />
       ) : (
-        <Icon path={mdiWeatherSunny} size={1} />
+        <Icon className='text-white' path={mdiWeatherSunny} size={1} />
       )}
     </div>
   );
