@@ -1,8 +1,10 @@
-import express, { Express } from 'express';
-import userRoutes from './routes/userRoutes';
+const express = require('express');
 
-const app: Express = express();
+const app = express();
+const port = process.env.PORT || 5001;
 
-app.use('/api/users', userRoutes);
+// Define your routes and middleware here
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});

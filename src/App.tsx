@@ -17,7 +17,7 @@ export default function App() {
 
   useEffect(() => {
     if (!localStorage.getItem('userId')) {
-      axios.get('/api/users/new')
+      axios.get('http://localhost:5001/api/users/new')
         .then(response => {
           localStorage.setItem('userId', response.data.userId);
         });
