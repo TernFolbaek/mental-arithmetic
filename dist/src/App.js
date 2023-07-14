@@ -19,7 +19,7 @@ function App() {
     };
     (0, react_1.useEffect)(function () {
         if (!localStorage.getItem('userId')) {
-            axios_1.default.get('http://localhost:5001/api/users/new')
+            axios_1.default.post('http://localhost:5001/api/users/new')
                 .then(function (response) {
                 localStorage.setItem('userId', response.data.userId);
             });

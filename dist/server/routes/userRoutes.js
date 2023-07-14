@@ -29,5 +29,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var userController = __importStar(require("../controllers/userController"));
 var router = express_1.default.Router();
-router.get('/api/users/new', userController.createUser);
+router.post('/api/users/new', userController.createUser);
 exports.default = router;
