@@ -68,15 +68,15 @@ export const MultiplicationGame: React.FC<MultiplicationGameProps> = ({ onClose 
     }
 
     return (
-        <div>
             <Modal 
                  isOpen={modalIsOpen}
                  onRequestClose={closeModal}
-                 className="sm:w-4/5 h-4/5 w-3/5  mx-auto border border-8 border-gray-300 dark:border-white dark:bg-gray-700 bg-white overflow-auto rounded-md outline-none p-5 mt-5 flex flex-col dark:text-white shadow-2xl"
+                 className="sm:w-4/5 h-4/5 w-3/5  mx-auto border border-8 border-gray-300 dark:border-white dark:bg-gray-700 bg-white overflow-auto rounded-md outline-none p-5 mt-5 flex flex-col dark:text-white shadow-2xl text-[25px] select-none"
+                 overlayClassName="flex items-center justify-center fixed inset-0 bg-black bg-opacity-70"
+
             >
-               <h1 className='text-[30px] text-bold'>Multiplication-Game</h1>
                <label>
-                    Difficulty:
+                    
                     <select value={difficulty} onChange={e => setDifficulty(e.target.value)}>
                         <option value="easy">Easy</option>
                         <option value="hard">Hard</option>
@@ -84,8 +84,8 @@ export const MultiplicationGame: React.FC<MultiplicationGameProps> = ({ onClose 
                 </label>
                 {problem && (
                     <form onSubmit={handleAnswerSubmit}>
-                        <p>Question: {problem.question}</p>
-                        <input className='border-2 border-black rounded dark:text-black' value={userAnswer} onChange={e => setUserAnswer(e.target.value)} required />
+                        <p>{problem.question}</p>
+                        <input className='border-2 border-black rounded dark:text-black w-4/5' value={userAnswer} onChange={e => setUserAnswer(e.target.value)} required />
                         <button type="submit">Submit Answer</button>
                     </form>
                 )}
@@ -96,6 +96,5 @@ export const MultiplicationGame: React.FC<MultiplicationGameProps> = ({ onClose 
                 <Countdown date={endTime} renderer={renderer} />
                 <button onClick={closeModal}>Close</button>
             </Modal>
-        </div>
     );
 };

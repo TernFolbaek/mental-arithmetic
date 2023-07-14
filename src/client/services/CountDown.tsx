@@ -29,7 +29,7 @@ export const CountDown: React.FC<CountdownProps> = ({ initialSeconds, onCountdow
   return (
     <Modal 
       isOpen={modalIsOpen}
-      className="flex items-center justify-center fixed left-0 bottom-0 w-full h-full bg-gray-800 bg-opacity-50"
+      className="flex items-center justify-center fixed w-full h-full bg-opacity-50"
       overlayClassName="flex items-center justify-center fixed inset-0 bg-black bg-opacity-50"
     >
       <div className="w-64 h-64 bg-white rounded flex items-center justify-center">

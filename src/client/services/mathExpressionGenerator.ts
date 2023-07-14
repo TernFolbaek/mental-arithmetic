@@ -29,7 +29,7 @@ export const generateHardAddition = (): MathExpression => {
 export const generateEasyMultiplication = (): MathExpression => {
     const num1 = getRandomInt(1, 20);
     const num2 = getRandomInt(1, 20);
-    const question = `${num1} * ${num2}`;
+    const question = `${num1} · ${num2}`;
     const answer = num1 * num2;
 
     return { question, answer };
@@ -39,7 +39,7 @@ export const generateHardMultiplication = (): MathExpression => {
     const num1 = getRandomInt(1, 20);
     const num2 = getRandomInt(1, 20);
     const num3 = getRandomInt(1, 20);
-    const question = `${num1} * ${num2} * ${num3}`;
+    const question = `${num1} · ${num2} · ${num3}`;
     const answer = num1 * num2 * num3;
     console.log(answer)
 
