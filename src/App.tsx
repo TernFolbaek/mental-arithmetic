@@ -4,7 +4,9 @@ import {Addition} from './client/components/pages/Addition';
 import {Subtraction} from './client/components/pages/Subtraction';
 import {Multiplication} from './client/components/pages/Multiplication';
 import {Division} from './client/components/pages/Division';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 
 export default function App() {
   const [selectedOperation, setSelectedOperation] = useState('Addition');
@@ -12,6 +14,15 @@ export default function App() {
   const handleOperationChange = (operation: string) => {
     setSelectedOperation(operation);
   };
+
+  useEffect(() => {
+    if (!localStorage.getItem('userId')) {
+      axios.get('/api/users/new')
+        .then(response => {
+          localStorage.setItem('userId', response.data.userId);
+        });
+    }
+  }, []);
 
   const renderPage = (selectedOperation: string) => {
     switch(selectedOperation) {
